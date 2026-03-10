@@ -1,34 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Galaxy from './components/Galaxy'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div
+      style={{
+        width: '100vw',
+        height: '100vh',
+        position: 'relative',
+        background: '#000',
+        overflow: 'hidden',
+      }}
+    >
+      <Galaxy
+        mouseRepulsion={false}
+        mouseInteraction
+        density={1}
+        glowIntensity={0.3}
+        saturation={0}
+        hueShift={140}
+        twinkleIntensity={0.3}
+        rotationSpeed={0.1}
+        repulsionStrength={2}
+        autoCenterRepulsion={0}
+        starSpeed={0.5}
+        speed={1}
+        transparent={false}
+      />
+    </div>
   )
 }
 
