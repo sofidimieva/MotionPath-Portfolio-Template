@@ -1,73 +1,26 @@
-# React + TypeScript + Vite
+# Portfolio Timeline Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-performance, GSAP-powered scrolling timeline portfolio template built with React, Vite, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## How to Customize
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Here are the key files you need to edit to customize:
 
-## React Compiler
+1. **Add Your Projects (`src/data.ts`)**
+   - This is the main data file. Edit the `projects` array to add your own projects, descriptions, tags, and theme colors. The timeline and cards will adapt automatically.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. **Update Your Name (`src/components/HeroSection.tsx`)**
+   - Open this file to change the large gradient name and the subtitle text at the top of the page.
 
-## Expanding the ESLint configuration
+3. **Change the Scrolling Icon (`src/components/TimelinePath.tsx`)**
+   - Around line 230, look for the `<image>` or `<circle>` tag. You can change this to any image (like the current Watergirl sprite), an emoji, or a simple geometric shape to represent your scroll progress on the path.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+4. **Update Site Metadata (`index.html` & `public/`)**
+   - Open `index.html` to change the `<title>` of the website.
+   - Replace the `public/favicon.png` file with your own logo or icon.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Quick Start
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
