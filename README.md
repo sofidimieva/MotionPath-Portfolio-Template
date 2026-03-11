@@ -1,6 +1,8 @@
-# Portfolio Timeline Template
+# MotionPath Portfolio Template
 
-A high-performance, GSAP-powered scrolling timeline portfolio template built with React, Vite, TypeScript, and Tailwind CSS.
+This is a high-performance, GSAP-powered scrolling timeline portfolio template built with React, Vite, TypeScript, and Tailwind CSS.
+
+To check out how it looks go to: [portfolio-template.s-dimieva.workers.dev](https://portfolio-template.s-dimieva.workers.dev/)
 
 ## How to Customize
 
