@@ -88,18 +88,62 @@ export default function ProjectCard({ project, isActive }: Props) {
                 transition: "box-shadow 0.6s ease, border-color 0.6s ease",
             }}
         >
-            <div className="mb-4 flex items-center gap-3">
-                <span className="text-3xl">{project.icon}</span>
+            <div className="mb-4">
                 <div>
-                    <h3
-                        className="text-xl font-semibold"
-                        style={{ color: "var(--text-primary)" }}
-                    >
-                        {project.title}
-                    </h3>
-                    <p className="text-sm" style={{ color: "var(--text-muted)" }}>
-                        {project.subtitle}
-                    </p>
+                    {project.link ? (
+                        <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center gap-1.5 transition-colors hover:opacity-90"
+                        >
+                            <h3
+                                className="text-xl font-semibold group-hover:underline"
+                                style={{ color: "var(--text-primary)" }}
+                            >
+                                {project.title}
+                            </h3>
+                            <svg
+                                width="14"
+                                height="14"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                style={{ color: project.accentColor }}
+                            >
+                                <line x1="7" y1="17" x2="17" y2="7" />
+                                <polyline points="7 7 17 7 17 17" />
+                            </svg>
+                        </a>
+                    ) : (
+                        <h3
+                            className="text-xl font-semibold"
+                            style={{ color: "var(--text-primary)" }}
+                        >
+                            {project.title}
+                        </h3>
+                    )}
+                    {/* Role and Place */}
+                    {(project.role || project.place) && (
+                        <p className="text-sm font-medium" style={{ color: "var(--text-secondary)" }}>
+                            {[project.role, project.place].filter(Boolean).join(" · ")}
+                        </p>
+                    )}
+                    {/* Date on a NEW line */}
+                    {project.date && (
+                        <p className="text-xs mt-0.5" style={{ color: "var(--text-muted)" }}>
+                            {project.date}
+                        </p>
+                    )}
+                    {!project.date && project.subtitle && (
+                        <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+                            {project.subtitle}
+                        </p>
+                    )}
                 </div>
             </div>
 
@@ -108,7 +152,7 @@ export default function ProjectCard({ project, isActive }: Props) {
                     <button
                         key={i}
                         onClick={() => goTo(i)}
-                        className="h-1.5 rounded-full transition-all duration-300"
+                        className="h-1.5 rounded-full transition-all duration-300 cursor-pointer"
                         style={{
                             width: i === current ? "2rem" : "0.375rem",
                             background:
@@ -158,7 +202,7 @@ export default function ProjectCard({ project, isActive }: Props) {
                                 </pre>
                             )}
                             {s.tags && (
-                                <div className="mt-3 flex flex-wrap gap-2">
+                                <div className="mt-4 flex flex-wrap gap-2">
                                     {s.tags.map((tag) => (
                                         <span
                                             key={tag}
@@ -181,7 +225,7 @@ export default function ProjectCard({ project, isActive }: Props) {
             <div className="mt-5 flex items-center justify-between">
                 <button
                     onClick={prev}
-                    className="flex h-9 w-9 items-center justify-center rounded-full transition-colors"
+                    className="flex h-9 w-9 items-center justify-center rounded-full transition-colors cursor-pointer"
                     style={{
                         background: "var(--accent-soft)",
                         color: project.accentColor,
@@ -211,7 +255,7 @@ export default function ProjectCard({ project, isActive }: Props) {
 
                 <button
                     onClick={next}
-                    className="flex h-9 w-9 items-center justify-center rounded-full transition-colors"
+                    className="flex h-9 w-9 items-center justify-center rounded-full transition-colors cursor-pointer"
                     style={{
                         background: "var(--accent-soft)",
                         color: project.accentColor,

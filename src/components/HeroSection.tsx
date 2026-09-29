@@ -82,9 +82,9 @@ export default function HeroSection() {
                 ref={headingRef}
                 className="relative z-10 text-5xl font-bold tracking-tight sm:text-7xl md:text-8xl"
             >
-                <span className="text-gradient">Put Your Name</span>
+                <span className="text-gradient">Sofia</span>
                 <br />
-                <span style={{ color: "var(--text-primary)" }}>Here</span>
+                <span style={{ color: "var(--text-primary)" }}>Dimieva</span>
             </h1>
 
             <p
@@ -92,7 +92,7 @@ export default function HeroSection() {
                 className="relative z-10 mt-6 max-w-xl text-lg font-light sm:text-xl"
                 style={{ color: "var(--text-secondary)" }}
             >
-                Put · Some Tags · Here
+                Software Engineer · MSc Computer Science @ TU Delft
             </p>
 
             <p
@@ -100,7 +100,7 @@ export default function HeroSection() {
                 className="relative z-10 mt-4 text-sm tracking-widest uppercase"
                 style={{ color: "var(--text-muted)" }}
             >
-                Scroll to to see my porjects ↓
+                Scroll to explore my journey
             </p>
         </section>
     );
